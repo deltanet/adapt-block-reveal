@@ -1,0 +1,22 @@
+{{! Maintainers - Robert Peek}}
+<div class="block-reveal-inner {{_blockReveal._classes}}">
+
+    {{#if _blockReveal._buttonGraphic}}
+        <a href="#" class="block-reveal-graphic-button block-reveal-button-states-image" role="button">
+            <img src="{{_blockReveal._buttonGraphic.src}}" alt="{{_blockReveal._buttonGraphic.alt}}"/>
+            <img src="{{_blockReveal._buttonGraphic.srcHover}}" class="block-reveal-button-image-hover" alt="{{_blockReveal._buttonGraphic.alt}}" title="{{_blockReveal._buttonGraphic.title}}" >
+            <img src="{{_blockReveal._buttonGraphic.srcVisited}}" class="block-reveal-button-image-visited" alt="{{_blockReveal._buttonGraphic.alt}}" title="{{_blockReveal._buttonGraphic.title}}" >
+        </a>
+            {{else}}
+            <a href="#" class="block-reveal-open-button" role="button">
+                <span class="block-reveal-open-button-text">{{_blockReveal._buttonTitle}}</span>
+            </a>
+    {{/if}}
+
+    <div class="block-reveal-shadow"></div>
+
+    <div class="content-reveal-done">
+        <a href="#" class="content-reveal-icon-close icon icon-cross"></a>
+    </div>
+
+</div>

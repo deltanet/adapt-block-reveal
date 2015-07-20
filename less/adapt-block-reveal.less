@@ -1,0 +1,140 @@
+.block-hidden {
+	visibility: hidden;
+}
+
+.block-overlay {
+	position: absolute !important;
+	z-index: 501;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+    opacity: 0;
+}
+
+
+.block-reveal {
+
+	.block-reveal-open-button {
+		background-color: @item-color;
+		text-decoration:none;
+		cursor: pointer;
+		padding: 10px 20px;
+		&.visited {
+		  .block-reveal-open-button-icon {
+			color: @item-visited-color;
+		  }
+		  &.show:hover {
+			background-color: @item-hover-color;
+			cursor:default; 
+		  }
+		}
+		&:hover {
+			background-color: @item-hover-color;
+		}
+	}
+  
+  	.block-reveal-open-button-text {
+		position:relative;
+		color: @item-text-color;
+		text-decoration:none;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	.block-reveal-graphic-button {
+		img {
+			display: block;
+		}		
+		&.block-reveal-button-states-image {
+			.item-states-image.default;
+			.no-touch & {
+				&:hover {
+					.item-states-image.hover;
+				}
+				&.visited {
+					.custom-hotgrid-item-states-image {
+						.item-states-image.visited;					
+					}	
+				}
+			}											
+		}
+
+		&.visited {
+		  .item-states-image.visited;
+		  &.show:hover {
+			.item-states-image.hover;
+		  }
+		}
+		&:hover {
+			.item-states-image.hover;
+		}
+	}
+
+	.block-reveal-shadow {
+		display: none;
+		opacity: 0;
+		position: fixed;
+		z-index: 500;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-color: @primary-color;
+	}
+
+	.content-reveal-done {
+		position: fixed;
+		z-index: 502;
+		display: none;
+		top: 0;
+		right: 0;
+		margin-top: @block-body-margin-top;
+		margin-right: @block-body-margin-top;
+	}
+
+	.content-reveal-icon-close {
+		color:@background-color;
+		padding: 10px;
+		font-size: 26px;
+		.no-touch & {
+			&:hover {
+				color:@item-hover-color;
+			}
+		}
+	}
+}
+
+.item-states-image {
+
+	.default {
+		img.block-reveal-button-image-hover {
+			display: none;
+		}			
+		img.block-reveal-button-image-visited {
+			display:none;
+		}		
+	}
+	.hover {
+		> img {
+			display:none;
+		}
+		img.block-reveal-button-image-hover {
+			display: block;
+		}			
+		img.block-reveal-button-image-visited {
+			display:none;
+		}
+	}
+	.visited {
+		> img {
+			display:none;
+		}
+		img.block-reveal-button-image-hover {
+			display: none !important;
+		}			
+		img.block-reveal-button-image-visited {
+			display:block !important;
+		}
+	}
+}
