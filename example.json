@@ -1,42 +1,29 @@
 // To go in the block.json file
 
-{
-    "_id": "b-05_1",
-    "_parentId": "a-05_1",
-    "_type": "block",
-    "_classes": "",
-    "title": "",
-    "displayTitle": "",
-    "body": "",
     "_blockReveal": {
+        "_isEnabled": true,
         "_blockToHide":"",
         "_classes": "",
-        "_buttonTitle": "Button title",
+        "_buttonTitle": "",
+        "_buttonIcon": {
+            "_isEnabled": true,
+            "_icon": "icon-info"
+        },
         "_buttonGraphic": {
-            "src": "course/en/images/resource_btn.png",
-            "srcHover":"course/en/images/resource_btn_over.png",
-            "srcVisited":"course/en/images/resource_btn.png",
+            "_isEnabled": false,
+            "src": "course/en/images/info_btn.png",
+            "srcHover":"course/en/images/info_btn_over.png",
+            "srcVisited":"course/en/images/info_btn_visited.png",
             "alt": "alt text"
+        },
+        "_ariaLabels": {
+            "openPopup": "More information item. Select here to open."
         }
-    },
-    "_trackingId": 0
-}
-
-// Exapmle of styling put in theme.less
-//
-/*
-.customBlockPopup {
-
-    //Button will appear on the right of the Block.
-
-    .block-popup-graphic-button {
-        margin-right: @block-title-padding-sides !important;
-        float: right !important;
     }
 
-    // If no image is used in the popup the text can be styled to fill the whole width.
 
-    .block-popup-contents {
-        width: 100% !important;
-    }
+// Accessibility supported courses require ARIA instruction - apply to _globals in course.json
+
+"_blockReveal": {
+    "blockReveal": "Block reveal. Select to trigger a popup for more information. Select the close button to close the popup."
 }

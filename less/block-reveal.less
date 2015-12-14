@@ -5,6 +5,7 @@
 .block-overlay {
 	position: absolute !important;
 	z-index: 501;
+	top: 0;
     left:0;
     right:0;
     margin-left:auto;
@@ -15,27 +16,52 @@
 
 .block-reveal {
 
+	.block-reveal-inner {
+		width: 100%;
+		max-width: @device-width-large;
+        top: 0px;
+		position: absolute;
+		padding-top: @block-padding-top;
+
+		@media all and (max-width: (@device-width-large + 20px)) {
+	        padding-top: @block-padding / 2;
+	        margin-left: -@block-padding;
+	        .dir-rtl & {
+	        	margin-right: -@block-padding;
+			}
+	    }
+	    @media all and (max-width: (@device-width-small + 20px)) {
+	        padding-top: @block-padding / 3;
+	        margin-left: -@block-padding / 2;
+	        .dir-rtl & {
+	            margin-right: -@block-padding / 2;
+			}
+	    }
+	}
+
 	.block-reveal-open-button {
+		float: right;
+        .dir-rtl & {
+			float: left;
+		}
 		background-color: @item-color;
+		color: @item-text-color;
 		text-decoration:none;
 		cursor: pointer;
-		padding: 10px 20px;
+		padding: @item-padding;
 		&.visited {
-		  .block-reveal-open-button-icon {
-			color: @item-visited-color;
-		  }
+			background-color: @item-visited-color;
 		  &.show:hover {
-			background-color: @item-hover-color;
+			background-color: @item-color-hover;
 			cursor:default; 
 		  }
 		}
 		&:hover {
-			background-color: @item-hover-color;
+			background-color: @item-color-hover;
 		}
 	}
   
   	.block-reveal-open-button-text {
-		position:relative;
 		color: @item-text-color;
 		text-decoration:none;
 		font-weight: bold;
@@ -43,6 +69,10 @@
 	}
 
 	.block-reveal-graphic-button {
+		float: right;
+        .dir-rtl & {
+			float: left;
+		}
 		img {
 			display: block;
 		}		
@@ -68,6 +98,16 @@
 		}
 		&:hover {
 			.item-states-image.hover;
+		}
+	}
+
+	.block-reveal-withAudio {
+		.block-reveal-open-button {
+			margin-right: (@item-padding*2)+@icon-size+@item-spacing;
+	        .dir-rtl & {
+				margin-left: (@item-padding*2)+@icon-size+@item-spacing;
+			}
+		
 		}
 	}
 
@@ -99,7 +139,7 @@
 		font-size: 26px;
 		.no-touch & {
 			&:hover {
-				color:@item-hover-color;
+				color:@item-color-hover;
 			}
 		}
 	}
