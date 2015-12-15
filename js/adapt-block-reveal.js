@@ -3,9 +3,9 @@ define(function(require) {
     var Adapt = require('coreJS/adapt');
     var Backbone = require('backbone');
 
-    var BlockRevealView = Backbone.View.extend({
+    var BlockRevealButtonView = Backbone.View.extend({
 
-        className: "block-reveal",
+        className: "block-reveal-button",
 
         initialize: function () {
             this.listenTo(Adapt, 'remove', this.remove);
@@ -14,85 +14,101 @@ define(function(require) {
 
         events: {
             "click .block-reveal-graphic-button":"openPopup",
-            "click .block-reveal-open-button":"openPopup",
-            "click .content-reveal-icon-close":"closeContent",
+            "click .block-reveal-open-button":"openPopup"
         },
 
         render: function () {
             var data = this.model.toJSON();
-            var template = Handlebars.templates["block-reveal"];
-            var blockToHide = this.model.get('_blockReveal')._blockToHide;
-            $(this.el).html(template(data)).appendTo('.' + this.model.get("_id") + " > .block-inner ");
+            var template = Handlebars.templates["block-reveal-button"];
 
-            var $blockInner = $("." + blockToHide);
-            $blockInner.addClass('block-overlay');
-            $blockInner.removeClass('trickle-hidden');
-            $blockInner.addClass('block-hidden');
+            var blockToHide = this.model.get('_blockReveal')._blockToHide;
+            var blockToReveal = this.model.get('_blockReveal')._blockToReveal;
+
+            $(this.el).html(template(data)).appendTo('.' + this.model.get("_blockReveal")._blockToHide + " > .block-inner");
+
+            var $blockToHideInner = $("." + blockToHide);
+            var $blockToRevealInner = $("." + blockToReveal);
+
+            $blockToRevealInner.addClass('block-reveal-hidden');
+            $blockToHideInner.css('opacity', 1);
+            $blockToRevealInner.css('opacity', 0);
+
             return this;
         },
         
         openPopup: function(event) {
-
             if (event) event.preventDefault();
 
             var blockToHide = this.model.get('_blockReveal')._blockToHide;
-            var $blockInner = $("." + blockToHide);
+            var $blockToHideInner = $("." + blockToHide);
+
+            var blockToReveal = this.model.get('_blockReveal')._blockToReveal;
+            var $blockToRevealInner = $("." + blockToReveal);
 
             this.$('.block-reveal-graphic-button').addClass("visited");
             
-            // trigger popupManager - this sets all tabindex elements to -1
-            Adapt.trigger('popup:opened');
-            // set close button to 0 - this prevents the user from tabbing outside of the popup whilst open
-            this.$('.content-reveal-icon-close').attr('tabindex', 0);
-            
-            this.$(".content-reveal-done").css({
-                display:"block"
+            $blockToHideInner.addClass('block-reveal-hidden');
+            $blockToRevealInner.removeClass('block-reveal-hidden');
+
+            $blockToHideInner.velocity({
+                opacity: 0
             });
 
-            $blockInner.removeClass('block-hidden');
-
-            $blockInner.velocity({
+            $blockToRevealInner.velocity({
                 opacity: 1
             });
+        }
 
-            this.$(".block-reveal-shadow").velocity({
-                opacity: 1
-            },{
-                display: "block"
-            });
+    });
+
+    var BlockRevealCloseView = Backbone.View.extend({
+
+        className: "block-reveal-close",
+
+        initialize: function () {
+            this.listenTo(Adapt, 'remove', this.remove);
+            this.render();
+        },
+
+        events: {
+            "click .content-reveal-icon-close":"closeContent"
+        },
+
+        render: function () {
+            var data = this.model.toJSON();
+            var template = Handlebars.templates["block-reveal-close"];
+            $(this.el).html(template(data)).appendTo('.' + this.model.get("_blockReveal")._blockToReveal + " > .block-inner");
+            return this;
         },
 
         closeContent: function(event) {
             if (event) event.preventDefault();
 
-            var blockToHide = this.model.get('_blockReveal')._blockToHide;
-            var $blockInner = $("." + blockToHide);
+            var blockToHide = this.model.get('_blockReveal')._blockToReveal;
+            var $blockToHideInner = $("." + blockToHide);
 
-            this.$(".content-reveal-done").css({
-                display:"none"
-            });
+            var blockToReveal = this.model.get('_blockReveal')._blockToHide;
+            var $blockToRevealInner = $("." + blockToReveal);
 
-            $blockInner.addClass('block-hidden');
+            $blockToHideInner.addClass('block-reveal-hidden');
+            $blockToRevealInner.removeClass('block-reveal-hidden');
 
-            $blockInner.velocity({
+            $blockToHideInner.velocity({
                 opacity: 0
             });
 
-            // trigger popup closed to reset the tab index back to 0
-            Adapt.trigger('popup:closed');
-
-            this.$(".block-reveal-shadow").velocity({
-                opacity: 0
-            },{
-                display: "none"
+            $blockToRevealInner.velocity({
+                opacity: 1
             });
         }
 
     });
-    
-    Adapt.on('blockView:postRender', function(view) {
+
+    Adapt.on('articleView:postRender', function(view) {
         if (view.model.get("_blockReveal") && view.model.get("_blockReveal")._isEnabled) {
-          new BlockRevealView({model:view.model});
+          new BlockRevealButtonView({model:view.model});
+          new BlockRevealCloseView({model:view.model});
         }
     });
+
 });

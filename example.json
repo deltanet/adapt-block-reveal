@@ -1,8 +1,9 @@
-// To go in the block.json file
+// To go in the article.json file
 
     "_blockReveal": {
         "_isEnabled": true,
-        "_blockToHide":"",
+        "_blockToHide": "",
+        "_blockToReveal": "",
         "_classes": "",
         "_buttonTitle": "",
         "_buttonIcon": {

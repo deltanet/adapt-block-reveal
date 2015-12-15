@@ -1,21 +1,13 @@
-<div class="block-reveal-inner {{_blockReveal._classes}}" aria-label="{{_globals._extensions._blockReveal.blockReveal}}" {{#if _globals._extensions._blockReveal.blockReveal}}tabindex="0"{{/if}}>
-
+<div class="block-reveal-button {{_blockReveal._classes}}">
     {{#if _blockReveal._buttonGraphic._isEnabled}}
         <a href="#" class="block-reveal-graphic-button block-reveal-button-states-image" role="button">
             <img src="{{_blockReveal._buttonGraphic.src}}" alt="{{_blockReveal._buttonGraphic.alt}}"/>
             <img src="{{_blockReveal._buttonGraphic.srcHover}}" class="block-reveal-button-image-hover" alt="{{_blockReveal._buttonGraphic.alt}}" title="{{_blockReveal._buttonGraphic.title}}" >
             <img src="{{_blockReveal._buttonGraphic.srcVisited}}" class="block-reveal-button-image-visited" alt="{{_blockReveal._buttonGraphic.alt}}" title="{{_blockReveal._buttonGraphic.title}}" >
         </a>
-            {{else}}
+        {{else}}
             <button class="block-reveal-open-button {{#if _blockReveal._buttonIcon._isEnabled}}icon {{_blockReveal._buttonIcon._icon}}{{/if}}" role="button" aria-label="{{_blockReveal._ariaLabels.openPopup}}">
                 <span class="block-reveal-open-button-text">{{_blockReveal._buttonTitle}}</span>
             </button>
     {{/if}}
-
-    <div class="block-reveal-shadow"></div>
-
-    <div class="content-reveal-done">
-        <a href="#" class="content-reveal-icon-close icon icon-cross"></a>
-    </div>
-
 </div>
