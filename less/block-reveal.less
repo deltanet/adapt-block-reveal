@@ -1,5 +1,4 @@
 .block-reveal-hidden {
-	visibility: hidden;
 	display: none;
 }
 
@@ -19,9 +18,9 @@
 	}
 	@media all and (max-width: (@device-width-small + 20px)) {
 	    padding-top: @block-padding / 3;
-	    margin-left: -@block-padding / 4;
+	    margin-left: -@block-padding / 2;
 	    .dir-rtl & {
-	        margin-right: -@block-padding / 4;
+	        margin-right: -@block-padding / 2;
 		}
 	}
 }
@@ -85,6 +84,39 @@
 	&:hover {
 		.item-states-image.hover;
 	}
+
+	.item-states-image {
+		.default {
+			img.block-reveal-button-image-hover {
+				display: none;
+			}			
+			img.block-reveal-button-image-visited {
+				display:none;
+			}		
+		}
+		.hover {
+			> img {
+				display:none;
+			}
+			img.block-reveal-button-image-hover {
+				display: block;
+			}			
+			img.block-reveal-button-image-visited {
+				display:none;
+			}
+		}
+		.visited {
+			> img {
+				display:none;
+			}
+			img.block-reveal-button-image-hover {
+				display: none !important;
+			}			
+			img.block-reveal-button-image-visited {
+				display:block !important;
+			}
+		}
+	}
 }
 
 .block-reveal-withAudio {
@@ -96,7 +128,7 @@
 	}
 }
 
-.content-reveal-done {
+.block-reveal-done {
 	width: 100%;
 	max-width: @device-width-large;
     top: 0px;
@@ -119,7 +151,7 @@
 	}
 }
 
-.content-reveal-icon-close {
+.block-reveal-icon-close {
 	padding: @item-padding;
 	float: right;
 	background-color: @item-color;
@@ -131,39 +163,5 @@
 	&:hover {
 		color: @item-text-color;
 		background-color: @item-color-hover;
-	}
-}
-
-.item-states-image {
-
-	.default {
-		img.block-reveal-button-image-hover {
-			display: none;
-		}			
-		img.block-reveal-button-image-visited {
-			display:none;
-		}		
-	}
-	.hover {
-		> img {
-			display:none;
-		}
-		img.block-reveal-button-image-hover {
-			display: block;
-		}			
-		img.block-reveal-button-image-visited {
-			display:none;
-		}
-	}
-	.visited {
-		> img {
-			display:none;
-		}
-		img.block-reveal-button-image-hover {
-			display: none !important;
-		}			
-		img.block-reveal-button-image-visited {
-			display:block !important;
-		}
 	}
 }

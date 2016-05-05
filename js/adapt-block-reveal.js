@@ -5,7 +5,7 @@ define(function(require) {
 
     var BlockRevealButtonView = Backbone.View.extend({
 
-        className: "block-reveal-button",
+        className: "block-reveal",
 
         initialize: function () {
             this.listenTo(Adapt, 'remove', this.remove);
@@ -57,6 +57,9 @@ define(function(require) {
             $blockToRevealInner.velocity({
                 opacity: 1
             });
+
+            Adapt.scrollTo("." + blockToReveal, { duration:400 });
+            $(window).scrollTop(0);
         }
 
     });
@@ -71,7 +74,7 @@ define(function(require) {
         },
 
         events: {
-            "click .content-reveal-icon-close":"closeContent"
+            "click .block-reveal-icon-close":"closeContent"
         },
 
         render: function () {
@@ -100,6 +103,9 @@ define(function(require) {
             $blockToRevealInner.velocity({
                 opacity: 1
             });
+
+            Adapt.scrollTo("." + blockToReveal, { duration:400 });
+            $(window).scrollTop(0);
         }
 
     });
