@@ -2,6 +2,7 @@
 
     "_blockReveal": {
         "_isEnabled": true,
+        "_trackCompletion": false,
         "_blockToHide": "",
         "_blockToReveal": "",
         "_classes": "",
