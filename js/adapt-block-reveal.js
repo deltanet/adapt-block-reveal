@@ -5,10 +5,11 @@ define(function(require) {
 
     var BlockRevealButtonView = Backbone.View.extend({
 
-        className: "block-reveal-button",
+        className: "block-reveal",
 
         initialize: function () {
             this.listenTo(Adapt, 'remove', this.remove);
+            this.listenTo(this.model, 'change:_isComplete', this.updateIcon);
             this.render();
         },
 
@@ -32,6 +33,12 @@ define(function(require) {
             $blockToRevealInner.addClass('block-reveal-hidden');
             $blockToHideInner.css('opacity', 1);
             $blockToRevealInner.css('opacity', 0);
+
+            if(this.model.get('_blockReveal')._trackCompletion){
+                if(!this.model.get('_isComplete')){
+                    this.$('.block-reveal-button').hide();
+                }
+            }
 
             return this;
         },
@@ -57,6 +64,16 @@ define(function(require) {
             $blockToRevealInner.velocity({
                 opacity: 1
             });
+
+            Adapt.scrollTo("." + blockToReveal, { duration:400 });
+            $(window).scrollTop(0);
+        },
+
+        updateIcon: function () {
+            console.log(this.model.get('_isComplete'));
+            if(this.model.get('_isComplete')){
+                this.$('.block-reveal-button').show();
+            }
         }
 
     });
@@ -71,7 +88,7 @@ define(function(require) {
         },
 
         events: {
-            "click .content-reveal-icon-close":"closeContent"
+            "click .block-reveal-icon-close":"closeContent"
         },
 
         render: function () {
@@ -100,6 +117,9 @@ define(function(require) {
             $blockToRevealInner.velocity({
                 opacity: 1
             });
+
+            Adapt.scrollTo("." + blockToReveal, { duration:400 });
+            $(window).scrollTop(0);
         }
 
     });
