@@ -9,19 +9,7 @@
       "required":true,
       "properties":{
         "config": {
-          "type":"object",
-          "properties":{
-            "_tutor": {
-              "type":"object",
-              "required":false,
-              "properties": {
-                "_isEnabled": {
-                  "type":"boolean",
-                  "required":true
-                }
-              }
-            }
-          }
+          "type":"object"
         },
         "course": {
           "type":"object"
@@ -30,7 +18,140 @@
           "type":"object"
         },
         "article": {
-          "type":"object"
+          "type":"object",
+          "properties":{
+            "_blockReveal": {
+              "type":"object",
+              "required":false,
+              "legend": "Block Reveal",
+              "properties":{
+                "_isEnabled": {
+                  "type":"boolean",
+                  "required":true,
+                  "title": "Enabled",
+                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "validators": [],
+                  "help": "Turns Block Reveal on and off. Acceptable values are true and false."
+                },
+                "_blockToHide": {
+                  "type": "string",
+                  "required": true,
+                  "title": "Block to Hide",
+                  "inputType": "Text",
+                  "validators": [],
+                  "help": "Paste the ID for the block that you want to hide. "
+                },
+                "_blockToReveal": {
+                  "type": "string",
+                  "required": true,
+                  "title": "Block to Reveal",
+                  "inputType": "Text",
+                  "validators": [],
+                  "help": "Paste the ID for the block that you want to reveal. "
+                },
+                "_classes": {
+                  "type": "string",
+                  "required": true,
+                  "title": "Classes",
+                  "inputType": "Text",
+                  "validators": []
+                },
+                "_buttonTitle": {
+                  "type": "string",
+                  "required": true,
+                  "title": "Button Title",
+                  "inputType": "Text",
+                  "validators": []
+                },
+                "_buttonIcon": {
+                  "type":"object",
+                  "title": "Button Icon",
+                  "required":false,
+                  "properties":{
+                    "_isEnabled": {
+                      "type":"boolean",
+                      "required":true,
+                      "title": "Enabled",
+                      "inputType": { "type": "Boolean", "options": [false, true]},
+                      "validators": [],
+                      "help": "Turns button icons on and off. Acceptable values are true and false."
+                    },
+                    "_icon": {
+                      "type": "string",
+                      "required": true,
+                      "title": "Icon",
+                      "default": "icon-info",
+                      "inputType": "Text",
+                      "validators": []
+                    }
+                  }
+                },
+                "_buttonGraphic": {
+                  "type":"object",
+                  "title": "Button Graphic",
+                  "required":false,
+                  "properties":{
+                    "_isEnabled": {
+                      "type":"boolean",
+                      "required":true,
+                      "title": "Enabled",
+                      "inputType": { "type": "Boolean", "options": [false, true]},
+                      "validators": [],
+                      "help": "Turns button graphic on and off. Acceptable values are true and false."
+                    },
+                    "src": {
+                      "type":"string",
+                      "required":true,
+                      "default": "",
+                      "inputType": "Asset:image",
+                      "validators": ["required"],
+                      "help": "Button graphic default state"
+                    },
+                    "srcHover": {
+                      "type":"string",
+                      "required":true,
+                      "default": "",
+                      "inputType": "Asset:image",
+                      "validators": ["required"],
+                      "help": "Button graphic hover state"
+                    },
+                    "srcVisited": {
+                      "type":"string",
+                      "required":true,
+                      "default": "",
+                      "inputType": "Asset:image",
+                      "validators": ["required"],
+                      "help": "Button graphic visited state"
+                    },
+                    "alt": {
+                      "type":"string",
+                      "required":false,
+                      "default": "",
+                      "title": "Alternative Text",
+                      "inputType": "Text",
+                      "validators": [],
+                      "help": "The alternative text for this image"
+                    }
+                  }
+                },
+                "_ariaLabels": {
+                  "type":"object",
+                  "title": "Button Graphic",
+                  "required":false,
+                  "properties":{
+                    "openPopup": {
+                      "type":"string",
+                      "required":false,
+                      "default": "",
+                      "title": "Popup Aria Label",
+                      "inputType": "Text",
+                      "validators": []
+                    }
+                  }
+                }
+              }
+            }
+          }
         },
         "block": {
           "type":"object"
