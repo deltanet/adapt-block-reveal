@@ -42,7 +42,7 @@ define(function(require) {
 
             return this;
         },
-        
+
         openPopup: function(event) {
             if (event) event.preventDefault();
 
@@ -53,7 +53,7 @@ define(function(require) {
             var $blockToRevealInner = $("." + blockToReveal);
 
             this.$('.block-reveal-graphic-button').addClass("visited");
-            
+
             $blockToHideInner.addClass('block-reveal-hidden');
             $blockToRevealInner.removeClass('block-reveal-hidden');
 
@@ -66,11 +66,9 @@ define(function(require) {
             });
 
             Adapt.scrollTo("." + blockToReveal, { duration:400 });
-            $(window).scrollTop(0);
         },
 
         updateIcon: function () {
-            console.log(this.model.get('_isComplete'));
             if(this.model.get('_isComplete')){
                 this.$('.block-reveal-button').show();
             }
@@ -119,7 +117,6 @@ define(function(require) {
             });
 
             Adapt.scrollTo("." + blockToReveal, { duration:400 });
-            $(window).scrollTop(0);
         }
 
     });
