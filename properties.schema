@@ -33,6 +33,14 @@
                   "validators": [],
                   "help": "Turns Block Reveal on and off. Acceptable values are true and false."
                 },
+                "_trackCompletion": {
+                  "type":"boolean",
+                  "required":true,
+                  "title": "Completion Required",
+                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "validators": [],
+                  "help": "Turns Block Reveal off until block to hide is complete. Acceptable values are true and false."
+                },
                 "_blockToHide": {
                   "type": "string",
                   "required": true,
@@ -61,7 +69,8 @@
                   "required": true,
                   "title": "Button Title",
                   "inputType": "Text",
-                  "validators": []
+                  "validators": [],
+                  "translatable": true
                 },
                 "_buttonIcon": {
                   "type":"object",
@@ -130,7 +139,8 @@
                       "title": "Alternative Text",
                       "inputType": "Text",
                       "validators": [],
-                      "help": "The alternative text for this image"
+                      "help": "The alternative text for this image",
+                      "translatable": true
                     }
                   }
                 },
@@ -145,7 +155,8 @@
                       "default": "",
                       "title": "Popup Aria Label",
                       "inputType": "Text",
-                      "validators": []
+                      "validators": [],
+                      "translatable": true
                     }
                   }
                 }
