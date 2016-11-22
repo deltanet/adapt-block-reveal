@@ -28,6 +28,7 @@
                 "_isEnabled": {
                   "type":"boolean",
                   "required":true,
+                  "default": false,
                   "title": "Enabled",
                   "inputType": { "type": "Boolean", "options": [false, true]},
                   "validators": [],
@@ -36,6 +37,7 @@
                 "_trackCompletion": {
                   "type":"boolean",
                   "required":true,
+                  "default": false,
                   "title": "Completion Required",
                   "inputType": { "type": "Boolean", "options": [false, true]},
                   "validators": [],
@@ -59,7 +61,7 @@
                 },
                 "_classes": {
                   "type": "string",
-                  "required": true,
+                  "required": false,
                   "title": "Classes",
                   "inputType": "Text",
                   "validators": []
@@ -80,6 +82,7 @@
                     "_isEnabled": {
                       "type":"boolean",
                       "required":true,
+                      "default": true,
                       "title": "Enabled",
                       "inputType": { "type": "Boolean", "options": [false, true]},
                       "validators": [],
@@ -103,6 +106,7 @@
                     "_isEnabled": {
                       "type":"boolean",
                       "required":true,
+                      "default": false,
                       "title": "Enabled",
                       "inputType": { "type": "Boolean", "options": [false, true]},
                       "validators": [],
