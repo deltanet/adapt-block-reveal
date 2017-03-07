@@ -22,13 +22,26 @@ define(function(require) {
             var data = this.model.toJSON();
             var template = Handlebars.templates["block-reveal-button"];
 
-            var blockToHide = this.model.get('_blockReveal')._blockToHide;
-            var blockToReveal = this.model.get('_blockReveal')._blockToReveal;
+            // Collect data and set up block id's
+            this.hideBlockNum = this.model.get('_blockReveal')._blockToHide;
+            this.revealBlockNum = this.model.get('_blockReveal')._blockToReveal;
 
-            $(this.el).html(template(data)).appendTo('.' + this.model.get("_blockReveal")._blockToHide + " > .block-inner");
+            // Get children and create array
+            this.children = this.model.getChildren(true);
+            this.childrenId = new Array();
+            for (var i = 0, l = this.children.length; i < l; i++) {
+              this.childrenId[i] = this.children.models[i].get('_id');
+            }
 
-            var $blockToHideInner = $("." + blockToHide);
-            var $blockToRevealInner = $("." + blockToReveal);
+            // Set id for block to hide
+            this.blockToHide = this.childrenId[this.hideBlockNum-1];
+            // Set id for block to reveal
+            this.blockToReveal = this.childrenId[this.revealBlockNum-1];
+
+            $(this.el).html(template(data)).appendTo('.' + this.blockToHide + " > .block-inner");
+
+            var $blockToHideInner = $("." + this.blockToHide);
+            var $blockToRevealInner = $("." + this.blockToReveal);
 
             $blockToRevealInner.addClass('block-reveal-hidden');
             $blockToHideInner.css('opacity', 1);
@@ -46,11 +59,8 @@ define(function(require) {
         openPopup: function(event) {
             if (event) event.preventDefault();
 
-            var blockToHide = this.model.get('_blockReveal')._blockToHide;
-            var $blockToHideInner = $("." + blockToHide);
-
-            var blockToReveal = this.model.get('_blockReveal')._blockToReveal;
-            var $blockToRevealInner = $("." + blockToReveal);
+            var $blockToHideInner = $("." + this.blockToHide);
+            var $blockToRevealInner = $("." + this.blockToReveal);
 
             this.$('.block-reveal-graphic-button').addClass("visited");
 
@@ -65,7 +75,7 @@ define(function(require) {
                 opacity: 1
             });
 
-            Adapt.scrollTo("." + blockToReveal, { duration:400 });
+            Adapt.scrollTo("." + this.blockToReveal, { duration:400 });
         },
 
         updateIcon: function () {
@@ -92,18 +102,31 @@ define(function(require) {
         render: function () {
             var data = this.model.toJSON();
             var template = Handlebars.templates["block-reveal-close"];
-            $(this.el).html(template(data)).appendTo('.' + this.model.get("_blockReveal")._blockToReveal + " > .block-inner");
+            // Collect data and set up block id's
+            this.hideBlockNum = this.model.get('_blockReveal')._blockToHide;
+            this.revealBlockNum = this.model.get('_blockReveal')._blockToReveal;
+
+            // Get children and create array
+            this.children = this.model.getChildren(true);
+            this.childrenId = new Array();
+            for (var i = 0, l = this.children.length; i < l; i++) {
+              this.childrenId[i] = this.children.models[i].get('_id');
+            }
+
+            // Set id for block to hide
+            this.blockToHide = this.childrenId[this.hideBlockNum-1];
+            // Set id for block to reveal
+            this.blockToReveal = this.childrenId[this.revealBlockNum-1];
+
+            $(this.el).html(template(data)).appendTo('.' + this.blockToReveal + " > .block-inner");
             return this;
         },
 
         closeContent: function(event) {
             if (event) event.preventDefault();
 
-            var blockToHide = this.model.get('_blockReveal')._blockToReveal;
-            var $blockToHideInner = $("." + blockToHide);
-
-            var blockToReveal = this.model.get('_blockReveal')._blockToHide;
-            var $blockToRevealInner = $("." + blockToReveal);
+            var $blockToHideInner = $("." + this.blockToReveal);
+            var $blockToRevealInner = $("." + this.blockToHide);
 
             $blockToHideInner.addClass('block-reveal-hidden');
             $blockToRevealInner.removeClass('block-reveal-hidden');
@@ -116,7 +139,7 @@ define(function(require) {
                 opacity: 1
             });
 
-            Adapt.scrollTo("." + blockToReveal, { duration:400 });
+            Adapt.scrollTo("." + this.blockToHide, { duration:400 });
         }
 
     });
