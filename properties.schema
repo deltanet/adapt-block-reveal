@@ -44,20 +44,22 @@
                   "help": "Turns Block Reveal off until block to hide is complete. Acceptable values are true and false."
                 },
                 "_blockToHide": {
-                  "type": "string",
+                  "type": "number",
                   "required": true,
+                  "inputType": "Number",
                   "title": "Block to Hide",
-                  "inputType": "Text",
-                  "validators": [],
-                  "help": "Paste the ID for the block that you want to hide. "
+                  "default": 1,
+                  "validators": ["number"],
+                  "help": "Enter the number of the block within the article that you want to hide."
                 },
                 "_blockToReveal": {
-                  "type": "string",
+                  "type": "number",
                   "required": true,
+                  "inputType": "Number",
                   "title": "Block to Reveal",
-                  "inputType": "Text",
-                  "validators": [],
-                  "help": "Paste the ID for the block that you want to reveal. "
+                  "default": 2,
+                  "validators": ["number"],
+                  "help": "Enter the number of the block within the article that you want to reveal."
                 },
                 "_classes": {
                   "type": "string",
