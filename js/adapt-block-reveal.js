@@ -59,6 +59,8 @@ define(function(require) {
         openPopup: function(event) {
             if (event) event.preventDefault();
 
+            Adapt.trigger('audio:pauseAudio', 0);
+
             var $blockToHideInner = $("." + this.blockToHide);
             var $blockToRevealInner = $("." + this.blockToReveal);
 
@@ -76,6 +78,7 @@ define(function(require) {
             });
 
             Adapt.scrollTo("." + this.blockToReveal, { duration:400 });
+            $(window).resize();
         },
 
         updateIcon: function () {
@@ -125,6 +128,8 @@ define(function(require) {
         closeContent: function(event) {
             if (event) event.preventDefault();
 
+            Adapt.trigger('audio:pauseAudio', 0);
+
             var $blockToHideInner = $("." + this.blockToReveal);
             var $blockToRevealInner = $("." + this.blockToHide);
 
@@ -140,6 +145,7 @@ define(function(require) {
             });
 
             Adapt.scrollTo("." + this.blockToHide, { duration:400 });
+            $(window).resize();
         }
 
     });
