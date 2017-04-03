@@ -33,10 +33,20 @@ define(function(require) {
               this.childrenId[i] = this.children.models[i].get('_id');
             }
 
+            // Backward compatible
+            // If length of number is greater than 5 it will be treated as a string ID
             // Set id for block to hide
-            this.blockToHide = this.childrenId[this.hideBlockNum-1];
+            if(this.hideBlockNum.length > 5) {
+              this.blockToHide = this.hideBlockNum;
+            } else {
+              this.blockToHide = this.childrenId[this.hideBlockNum-1];
+            }
             // Set id for block to reveal
-            this.blockToReveal = this.childrenId[this.revealBlockNum-1];
+            if(this.revealBlockNum.length > 5) {
+              this.blockToReveal = this.revealBlockNum;
+            } else {
+              this.blockToReveal = this.childrenId[this.revealBlockNum-1];
+            }
 
             $(this.el).html(template(data)).appendTo('.' + this.blockToHide + " > .block-inner");
 
@@ -116,10 +126,20 @@ define(function(require) {
               this.childrenId[i] = this.children.models[i].get('_id');
             }
 
+            // Backward compatible
+            // If length of number is greater than 5 it will be treated as a string ID
             // Set id for block to hide
-            this.blockToHide = this.childrenId[this.hideBlockNum-1];
+            if(this.hideBlockNum.length > 5) {
+              this.blockToHide = this.hideBlockNum;
+            } else {
+              this.blockToHide = this.childrenId[this.hideBlockNum-1];
+            }
             // Set id for block to reveal
-            this.blockToReveal = this.childrenId[this.revealBlockNum-1];
+            if(this.revealBlockNum.length > 5) {
+              this.blockToReveal = this.revealBlockNum;
+            } else {
+              this.blockToReveal = this.childrenId[this.revealBlockNum-1];
+            }
 
             $(this.el).html(template(data)).appendTo('.' + this.blockToReveal + " > .block-inner");
             return this;
