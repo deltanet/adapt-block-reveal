@@ -3,8 +3,8 @@
     "_blockReveal": {
         "_isEnabled": true,
         "_trackCompletion": false,
-        "_blockToHide": 1,
-        "_blockToReveal": 2,
+        "_blockToHide": "1",
+        "_blockToReveal": "2",
         "_classes": "",
         "_buttonTitle": "",
         "_buttonIcon": {
