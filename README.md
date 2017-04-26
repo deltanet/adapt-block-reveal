@@ -60,7 +60,7 @@ The Block reveal attribute group contains values for **_isEnabled**, **_trackCom
 No known limitations. 
 
 ----------------------------
-**Version number:**  2.1.1     
+**Version number:**  2.1.2     
 **Framework versions supported:**  2.0.6     
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-block-reveal/graphs/contributors)     
 **Accessibility support:** yes  
