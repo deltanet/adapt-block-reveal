@@ -22,26 +22,26 @@
           "properties":{
             "_blockReveal": {
               "type":"object",
-              "required":false,
+              "required": false,
               "legend": "Block Reveal",
               "properties":{
                 "_isEnabled": {
                   "type":"boolean",
-                  "required":true,
+                  "required": true,
                   "default": false,
-                  "title": "Enabled",
-                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "title": "Is Enabled",
+                  "inputType": "Checkbox",
                   "validators": [],
-                  "help": "Turns Block Reveal on and off. Acceptable values are true and false."
+                  "help": "Controls whether the Block Reveal extension is enabled or disabled."
                 },
                 "_trackCompletion": {
                   "type":"boolean",
-                  "required":true,
+                  "required": true,
                   "default": false,
                   "title": "Completion Required",
-                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "inputType": "Checkbox",
                   "validators": [],
-                  "help": "Turns Block Reveal off until block to hide is complete. Acceptable values are true and false."
+                  "help": "If enabled, Block Reveal is off until block to hide is complete."
                 },
                 "_blockToHide": {
                   "type": "string",
@@ -77,16 +77,16 @@
                 "_buttonIcon": {
                   "type":"object",
                   "title": "Button Icon",
-                  "required":false,
+                  "required": false,
                   "properties":{
                     "_isEnabled": {
                       "type":"boolean",
-                      "required":true,
+                      "required": true,
                       "default": true,
-                      "title": "Enabled",
-                      "inputType": { "type": "Boolean", "options": [false, true]},
+                      "title": "Is Enabled",
+                      "inputType": "Checkbox",
                       "validators": [],
-                      "help": "Turns button icons on and off. Acceptable values are true and false."
+                      "help": "Controls whether Button Icon is on or off."
                     },
                     "_icon": {
                       "type": "string",
@@ -105,59 +105,59 @@
                   "properties":{
                     "_isEnabled": {
                       "type":"boolean",
-                      "required":false,
+                      "required": false,
                       "default": false,
-                      "title": "Enabled",
-                      "inputType": { "type": "Boolean", "options": [false, true]},
+                      "title": "Is Enabled",
+                      "inputType": "Checkbox",
                       "validators": [],
-                      "help": "Turns button graphic on and off. Acceptable values are true and false."
+                      "help": "Controls whether Button Graphic is on or off."
                     },
                     "src": {
                       "type":"string",
-                      "required":false,
+                      "required": false,
                       "default": "",
                       "inputType": "Asset:image",
                       "validators": [],
-                      "help": "Button graphic default state"
+                      "help": "Button graphic default state."
                     },
                     "srcHover": {
                       "type":"string",
-                      "required":false,
+                      "required": false,
                       "default": "",
                       "inputType": "Asset:image",
                       "validators": [],
-                      "help": "Button graphic hover state"
+                      "help": "Button graphic hover state."
                     },
                     "srcVisited": {
                       "type":"string",
-                      "required":false,
+                      "required": false,
                       "default": "",
                       "inputType": "Asset:image",
                       "validators": [],
-                      "help": "Button graphic visited state"
+                      "help": "Button graphic visited state."
                     },
                     "alt": {
                       "type":"string",
-                      "required":false,
+                      "required": false,
                       "default": "",
                       "title": "Alternative Text",
                       "inputType": "Text",
                       "validators": [],
-                      "help": "The alternative text for this image",
+                      "help": "The alternative text for this image.",
                       "translatable": true
                     }
                   }
                 },
                 "_ariaLabels": {
                   "type":"object",
-                  "title": "Button Graphic",
-                  "required":false,
+                  "title": "Accessibility",
+                  "required": false,
                   "properties":{
                     "openPopup": {
                       "type":"string",
-                      "required":false,
+                      "required": false,
                       "default": "",
-                      "title": "Popup Aria Label",
+                      "title": "Button Aria Label",
                       "inputType": "Text",
                       "validators": [],
                       "translatable": true
