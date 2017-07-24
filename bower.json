@@ -1,17 +1,12 @@
 {
   "name": "adapt-block-reveal",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "framework": "^2.0.6",
   "homepage": "https://github.com/deltanet/adapt-block-reveal",
   "displayName" : "Block Reveal",
   "extension" : "block reveal",
   "description": "An extension that allows a button or an image button to be added to a block which reveals a hidden block.",
   "main": "/js/adapt-block-reveal.js",
-  "assetFields" : [
-    "_buttonGraphic.src",
-    "_buttonGraphic.srcHover",
-    "_buttonGraphic.srcVisited"
-  ],
   "keywords": [
     "adapt-plugin",
     "adapt-extension"

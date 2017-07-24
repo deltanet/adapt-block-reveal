@@ -52,15 +52,14 @@ The Block reveal attribute group contains values for **_isEnabled**, **_trackCom
 
 ### Accessibility
 
-**Block reveal** has one element assigned a label using the [aria-label](https://github.com/adaptlearning/adapt_framework/wiki/Aria-Labels) attribute: **ariaPoupupLabel**. This label is not a visible element. It is utilized by assistive technology such as screen readers. Should the label text need to be customised, they can be found within the **globals** object in [*properties.schema*](https://github.com/deltanet/adapt-block-reveal/blob/master/properties.schema).   
-<div float align=right><a href="#top">Back to Top</a></div>
+**Block reveal** has one element assigned a label using the [aria-label](https://github.com/adaptlearning/adapt_framework/wiki/Aria-Labels) attribute: **ariaPoupupLabel**. This label is not a visible element. It is utilized by assistive technology such as screen readers. Should the label text need to be customised, they can be found within the **globals** object in [*properties.schema*](https://github.com/deltanet/adapt-block-reveal/blob/master/properties.schema).  
 
 ## Limitations
- 
-No known limitations. 
+
+No known limitations.
 
 ----------------------------
-**Version number:**  2.1.2     
+**Version number:**  2.1.3     
 **Framework versions supported:**  2.0.6     
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-block-reveal/graphs/contributors)     
 **Accessibility support:** yes  
