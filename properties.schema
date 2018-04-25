@@ -3,30 +3,30 @@
   "$schema": "http://json-schema.org/draft-04/schema",
   "id": "http://jsonschema.net",
   "required":false,
-  "properties":{
+  "properties": {
     "pluginLocations": {
-      "type":"object",
-      "required":true,
-      "properties":{
+      "type": "object",
+      "required": true,
+      "properties": {
         "config": {
-          "type":"object"
+          "type": "object"
         },
         "course": {
-          "type":"object"
+          "type": "object"
         },
         "contentobject": {
-          "type":"object"
+          "type": "object"
         },
         "article": {
-          "type":"object",
-          "properties":{
+          "type": "object",
+          "properties": {
             "_blockReveal": {
-              "type":"object",
+              "type": "object",
               "required": false,
               "legend": "Block Reveal",
-              "properties":{
+              "properties": {
                 "_isEnabled": {
-                  "type":"boolean",
+                  "type": "boolean",
                   "required": true,
                   "default": false,
                   "title": "Is Enabled",
@@ -35,7 +35,7 @@
                   "help": "Controls whether the Block Reveal extension is enabled or disabled."
                 },
                 "_trackCompletion": {
-                  "type":"boolean",
+                  "type": "boolean",
                   "required": true,
                   "default": false,
                   "title": "Completion Required",
@@ -78,9 +78,9 @@
                   "type":"object",
                   "title": "Button Icon",
                   "required": false,
-                  "properties":{
+                  "properties": {
                     "_isEnabled": {
-                      "type":"boolean",
+                      "type": "boolean",
                       "required": true,
                       "default": true,
                       "title": "Is Enabled",
@@ -99,12 +99,12 @@
                   }
                 },
                 "_buttonGraphic": {
-                  "type":"object",
+                  "type": "object",
                   "title": "Button Graphic",
-                  "required":false,
-                  "properties":{
+                  "required": false,
+                  "properties": {
                     "_isEnabled": {
-                      "type":"boolean",
+                      "type": "boolean",
                       "required": false,
                       "default": false,
                       "title": "Is Enabled",
@@ -113,7 +113,7 @@
                       "help": "Controls whether Button Graphic is on or off."
                     },
                     "src": {
-                      "type":"string",
+                      "type": "string",
                       "required": false,
                       "default": "",
                       "inputType": "Asset:image",
@@ -121,7 +121,7 @@
                       "help": "Button graphic default state."
                     },
                     "srcHover": {
-                      "type":"string",
+                      "type": "string",
                       "required": false,
                       "default": "",
                       "inputType": "Asset:image",
@@ -129,35 +129,34 @@
                       "help": "Button graphic hover state."
                     },
                     "srcVisited": {
-                      "type":"string",
+                      "type": "string",
                       "required": false,
                       "default": "",
                       "inputType": "Asset:image",
                       "validators": [],
                       "help": "Button graphic visited state."
-                    },
-                    "alt": {
-                      "type":"string",
-                      "required": false,
-                      "default": "",
-                      "title": "Alternative Text",
-                      "inputType": "Text",
-                      "validators": [],
-                      "help": "The alternative text for this image.",
-                      "translatable": true
                     }
                   }
                 },
                 "_ariaLabels": {
-                  "type":"object",
+                  "type": "object",
                   "title": "Accessibility",
                   "required": false,
-                  "properties":{
+                  "properties": {
                     "openPopup": {
-                      "type":"string",
+                      "type": "string",
                       "required": false,
                       "default": "",
-                      "title": "Button Aria Label",
+                      "title": "Open Button Aria Label",
+                      "inputType": "Text",
+                      "validators": [],
+                      "translatable": true
+                    },
+                    "closePopup": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "title": "Close Button Aria Label",
                       "inputType": "Text",
                       "validators": [],
                       "translatable": true
@@ -169,10 +168,10 @@
           }
         },
         "block": {
-          "type":"object"
+          "type": "object"
         },
         "component": {
-          "type":"object"
+          "type": "object"
         }
       }
     }

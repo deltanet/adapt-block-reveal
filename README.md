@@ -44,22 +44,14 @@ The Block reveal attribute group contains values for **_isEnabled**, **_trackCom
 
 >>**srcVisited** (string): File name (including path) of the image for button's visited state.  
 
->**alt** (string): This text becomes the image’s `alt` attribute.  
+>**_ariaLabels** (object): This `_ariaLabels` attributes group stores the accessibility properties for the button. It contains values for **openPopup**, and **closePopup**.  
 
->**_ariaLabels** (object): This `_ariaLabels` attributes group stores the accessibility properties for the button. It contains values for **openPopup**.  
+>>**openPopup** (string):  This text becomes the open button’s `aria label` attribute.  
 
->>**openPopup** (string):  This text becomes the button’s `aria label` attribute.  
-
-### Accessibility
-
-**Block reveal** has one element assigned a label using the [aria-label](https://github.com/adaptlearning/adapt_framework/wiki/Aria-Labels) attribute: **ariaPoupupLabel**. This label is not a visible element. It is utilized by assistive technology such as screen readers. Should the label text need to be customised, they can be found within the **globals** object in [*properties.schema*](https://github.com/deltanet/adapt-block-reveal/blob/master/properties.schema).  
-
-## Limitations
-
-No known limitations.
+>>**closePopup** (string):  This text becomes the close button’s `aria label` attribute.  
 
 ----------------------------
-**Version number:**  2.1.3     
+**Version number:**  2.1.4     
 **Framework versions supported:**  2.0.6     
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-block-reveal/graphs/contributors)     
 **Accessibility support:** yes  

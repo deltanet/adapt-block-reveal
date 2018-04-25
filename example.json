@@ -1,31 +1,24 @@
 // To go in the article.json file
 
-    "_blockReveal": {
-        "_isEnabled": true,
-        "_trackCompletion": false,
-        "_blockToHide": "1",
-        "_blockToReveal": "2",
-        "_classes": "",
-        "_buttonTitle": "",
-        "_buttonIcon": {
-            "_isEnabled": true,
-            "_icon": "icon-info"
-        },
-        "_buttonGraphic": {
-            "_isEnabled": false,
-            "src": "course/en/images/info_btn.png",
-            "srcHover":"course/en/images/info_btn_over.png",
-            "srcVisited":"course/en/images/info_btn_visited.png",
-            "alt": "alt text"
-        },
-        "_ariaLabels": {
-            "openPopup": "More information item. Select here to open."
-        }
-    }
-
-
-// Accessibility supported courses require ARIA instruction - apply to _globals in course.json
-
 "_blockReveal": {
-    "blockReveal": "Block reveal. Select to trigger a popup for more information. Select the close button to close the popup."
+  "_isEnabled": true,
+  "_trackCompletion": false,
+  "_blockToHide": "1",
+  "_blockToReveal": "2",
+  "_classes": "",
+  "_buttonTitle": "",
+  "_buttonIcon": {
+    "_isEnabled": true,
+    "_icon": "icon-info"
+  },
+  "_buttonGraphic": {
+    "_isEnabled": false,
+    "src": "course/en/images/info_btn.png",
+    "srcHover":"course/en/images/info_btn_over.png",
+    "srcVisited":"course/en/images/info_btn_visited.png"
+  },
+  "_ariaLabels": {
+    "openPopup": "More information item. Select here to open.",
+    "closePopup": "Select here to close."
+  }
 }
