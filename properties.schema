@@ -34,6 +34,13 @@
                   "validators": [],
                   "help": "Controls whether the Block Reveal extension is enabled or disabled."
                 },
+                "_classes": {
+                  "type": "string",
+                  "required": false,
+                  "title": "Classes",
+                  "inputType": "Text",
+                  "validators": []
+                },
                 "_trackCompletion": {
                   "type": "boolean",
                   "required": true,
@@ -47,7 +54,7 @@
                   "type": "string",
                   "required": true,
                   "inputType": "Text",
-                  "title": "Block to Hide",
+                  "title": "Visible Block",
                   "validators": [],
                   "help": "Enter the number of the block within the article that you want to display first."
                 },
@@ -55,27 +62,38 @@
                   "type": "string",
                   "required": true,
                   "inputType": "Text",
-                  "title": "Block to Reveal",
+                  "title": "Hidden Block to Reveal",
                   "validators": [],
                   "help": "Enter the number of the block within the article that you want to reveal."
                 },
-                "_classes": {
+                "_buttonLocation": {
                   "type": "string",
                   "required": false,
-                  "title": "Classes",
-                  "inputType": "Text",
+                  "default": "top",
+                  "title": "Button Location",
+                  "inputType": {"type": "Select", "options": ["top", "bottom"]},
                   "validators": []
                 },
                 "_buttonTitle": {
                   "type": "string",
-                  "required": true,
+                  "required": false,
+                  "default": "",
                   "title": "Button Title",
                   "inputType": "Text",
                   "validators": [],
                   "translatable": true
                 },
+                "_buttonBackTitle": {
+                  "type": "string",
+                  "required": false,
+                  "default": "",
+                  "title": "Back Button Title",
+                  "inputType": "Text",
+                  "validators": [],
+                  "translatable": true
+                },
                 "_buttonIcon": {
-                  "type":"object",
+                  "type": "object",
                   "title": "Button Icon",
                   "required": false,
                   "properties": {
@@ -90,9 +108,17 @@
                     },
                     "_icon": {
                       "type": "string",
-                      "required": true,
+                      "required": false,
                       "title": "Icon",
                       "default": "icon-info",
+                      "inputType": "Text",
+                      "validators": []
+                    },
+                    "_iconBack": {
+                      "type": "string",
+                      "required": false,
+                      "title": "Icon",
+                      "default": "icon-cross",
                       "inputType": "Text",
                       "validators": []
                     }

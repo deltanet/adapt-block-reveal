@@ -2,14 +2,17 @@
 
 "_blockReveal": {
   "_isEnabled": true,
+  "_classes": "",
   "_trackCompletion": false,
   "_blockToHide": "1",
   "_blockToReveal": "2",
-  "_classes": "",
+  "_buttonLocation": "",
   "_buttonTitle": "",
+  "_buttonBackTitle": "",
   "_buttonIcon": {
     "_isEnabled": true,
-    "_icon": "icon-info"
+    "_icon": "icon-info",
+    "_iconBack": "icon-cross"
   },
   "_buttonGraphic": {
     "_isEnabled": false,

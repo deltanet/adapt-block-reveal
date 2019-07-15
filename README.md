@@ -30,9 +30,19 @@ The Block reveal attribute group contains values for **_isEnabled**, **_trackCom
 
 >**_classes** (string):  Defines the class name for the button which must be included in the theme.  
 
->**_buttonTitle** (string):  Defines the text for the button.  
+>**_location** (string):  Defines where the button will be displayed on the page. Options are `top` and `bottom`.
 
->**_buttonIcon** (string):  If the button is an icon, this defines a css class for the icon which must be included in the theme.  
+>**_buttonTitle** (string):  Defines the text for the button on the visible block.  
+
+>**_buttonBackTitle** (string):  Defines the text for the back button on the hidden block.  
+
+>**_buttonIcon** (object): This `_buttonIcon` attributes group stores the properties for the icon on the button. It contains values for **_isEnabled**, **_icon**, and **_iconBack**.  
+
+>>**_isEnabled** (boolean):  If set to `true`, an icon will be used as the button.  
+
+>**_icon** (string):  This defines a css class for the icon on the button in the visible block, which must be included in the theme.  
+
+>**_iconBack** (string):  This defines a css class for the icon on the button in the hidden block, which must be included in the theme.  
 
 >**_buttonGraphic** (object): This `_buttonGraphic` attributes group stores the properties for the graphic used as a button. It contains values for **_isEnabled**, **src**, **srcHover**, **srcVisited**, and **alt**.  
 
@@ -51,7 +61,7 @@ The Block reveal attribute group contains values for **_isEnabled**, **_trackCom
 >>**closePopup** (string):  This text becomes the close button’s `aria label` attribute.  
 
 ----------------------------
-**Version number:**  2.1.4     
+**Version number:**  2.2.0     
 **Framework versions supported:**  2.0.6     
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-block-reveal/graphs/contributors)     
 **Accessibility support:** yes  
