@@ -1,7 +1,12 @@
+{{#if _blockReveal._buttonBackTitle}}
 <div class="block-reveal-done {{_blockReveal._buttonLocation}} {{_blockReveal._classes}}">
-  <button class="button block-reveal-icon-close {{#if _blockReveal._buttonIcon._isEnabled}}icon {{_blockReveal._buttonIcon._iconBack}}{{/if}}" role="button" aria-label="{{_blockReveal._ariaLabels.closePopup}}">
-    {{#if _blockReveal._buttonBackTitle}}
+  <button class="button block-reveal-icon-close" role="button" aria-label="{{_blockReveal._ariaLabels.closePopup}}">
     {{_blockReveal._buttonBackTitle}}
-    {{/if}}
   </button>
 </div>
+{{/if}}
+{{#if _blockReveal._buttonIcon._isEnabled}}
+<div class="block-reveal-done {{_blockReveal._buttonLocation}} {{_blockReveal._classes}}">
+  <button class="button block-reveal-icon-close icon {{_blockReveal._buttonIcon._iconBack}}" role="button" aria-label="{{_blockReveal._ariaLabels.closePopup}}"></button>
+</div>
+{{/if}}

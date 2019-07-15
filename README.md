@@ -61,7 +61,7 @@ The Block reveal attribute group contains values for **_isEnabled**, **_trackCom
 >>**closePopup** (string):  This text becomes the close button’s `aria label` attribute.  
 
 ----------------------------
-**Version number:**  2.2.0     
+**Version number:**  2.2.1     
 **Framework versions supported:**  2.0.6     
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-block-reveal/graphs/contributors)     
 **Accessibility support:** yes  
