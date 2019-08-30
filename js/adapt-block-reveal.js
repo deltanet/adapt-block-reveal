@@ -1,21 +1,20 @@
-define(function(require) {
-
-    var Adapt = require('coreJS/adapt');
-    var Backbone = require('backbone');
+define([
+    'core/js/adapt'
+], function(Adapt) {
 
     var BlockRevealButtonView = Backbone.View.extend({
 
         className: "block-reveal",
 
+        events: {
+            "click .block-reveal-graphic-button":"openPopup",
+            "click .block-reveal-open-button":"openPopup"
+        },
+
         initialize: function () {
             this.listenTo(Adapt, 'remove', this.remove);
             this.listenTo(this.model, 'change:_isComplete', this.updateIcon);
             this.render();
-        },
-
-        events: {
-            "click .block-reveal-graphic-button":"openPopup",
-            "click .block-reveal-open-button":"openPopup"
         },
 
         render: function () {
@@ -53,7 +52,7 @@ define(function(require) {
             var $blockToHideInner = $("." + this.blockToHide);
             var $blockToRevealInner = $("." + this.blockToReveal);
 
-            $blockToRevealInner.addClass('block-reveal-hidden');
+            $blockToRevealInner.addClass('block-reveal block-reveal-hidden');
             $blockToHideInner.css('opacity', 1);
             $blockToRevealInner.css('opacity', 0);
 

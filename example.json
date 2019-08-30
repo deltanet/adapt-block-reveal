@@ -4,9 +4,9 @@
   "_isEnabled": true,
   "_classes": "",
   "_trackCompletion": false,
-  "_blockToHide": "1",
-  "_blockToReveal": "2",
-  "_buttonLocation": "",
+  "_blockToHide": 1,
+  "_blockToReveal": 2,
+  "_buttonLocation": "", // options are "top" and "bottom"
   "_buttonTitle": "",
   "_buttonBackTitle": "",
   "_buttonIcon": {
@@ -16,12 +16,12 @@
   },
   "_buttonGraphic": {
     "_isEnabled": false,
-    "src": "course/en/images/info_btn.png",
-    "srcHover":"course/en/images/info_btn_over.png",
-    "srcVisited":"course/en/images/info_btn_visited.png"
+    "src": "",
+    "srcHover":"",
+    "srcVisited":""
   },
   "_ariaLabels": {
-    "openPopup": "More information item. Select here to open.",
-    "closePopup": "Select here to close."
+    "openPopup": "",
+    "closePopup": ""
   }
 }

@@ -51,19 +51,21 @@
                   "help": "If enabled, Block Reveal is off until block to hide is complete."
                 },
                 "_blockToHide": {
-                  "type": "string",
+                  "type": "number",
                   "required": true,
-                  "inputType": "Text",
+                  "inputType": "Number",
                   "title": "Visible Block",
-                  "validators": [],
+                  "default": 1,
+                  "validators": ["number"],
                   "help": "Enter the number of the block within the article that you want to display first."
                 },
                 "_blockToReveal": {
-                  "type": "string",
+                  "type": "number",
                   "required": true,
-                  "inputType": "Text",
+                  "inputType": "Number",
                   "title": "Hidden Block to Reveal",
-                  "validators": [],
+                  "default": 2,
+                  "validators": ["number"],
                   "help": "Enter the number of the block within the article that you want to reveal."
                 },
                 "_buttonLocation": {

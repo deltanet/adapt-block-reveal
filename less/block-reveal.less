@@ -3,25 +3,31 @@
 }
 
 .block-reveal-button {
+	padding-top: @block-padding-top;
+
+	@media all and (max-width: (@device-width-large + 20px)) {
+		padding-top: @block-padding / 2;
+	}
+	@media all and (max-width: (@device-width-small + 20px)) {
+		padding-top: @block-padding / 3;
+	}
+
 	&:not(.bottom) {
 		width: 100%;
 		max-width: @device-width-large;
 		top: 0px;
 		position: absolute;
-		padding-top: @block-padding-top;
 
 		@media all and (max-width: (@device-width-large + 20px)) {
-		    padding-top: @block-padding / 2;
-		    margin-left: -@block-padding;
-		    .dir-rtl & {
-		        margin-right: -@block-padding;
+			margin-left: -@block-padding;
+		  .dir-rtl & {
+				margin-right: -@block-padding;
 			}
 		}
 		@media all and (max-width: (@device-width-small + 20px)) {
-		    padding-top: @block-padding / 3;
-		    margin-left: -@block-padding / 2;
-		    .dir-rtl & {
-		        margin-right: -@block-padding / 2;
+			margin-left: -@block-padding / 2;
+			.dir-rtl & {
+				margin-right: -@block-padding / 2;
 			}
 		}
 
@@ -122,22 +128,28 @@
 }
 
 .block-reveal-done {
+	padding-top: @block-padding-top;
+
+	@media all and (max-width: (@device-width-large + 20px)) {
+		padding-top: @block-padding / 2;
+	}
+	@media all and (max-width: (@device-width-small + 20px)) {
+		padding-top: @block-padding / 3;
+	}
+
 	&:not(.bottom) {
 		width: 100%;
 		max-width: @device-width-large;
 	  top: 0px;
 		position: absolute;
-		padding-top: @block-padding-top;
 
 		@media all and (max-width: (@device-width-large + 20px)) {
-			padding-top: @block-padding / 2;
 			margin-left: -@block-padding;
 			.dir-rtl & {
 				margin-right: -@block-padding;
 			}
 		}
 		@media all and (max-width: (@device-width-small + 20px)) {
-			padding-top: @block-padding / 3;
 		  margin-left: -@block-padding / 2;
 		  .dir-rtl & {
 				margin-right: -@block-padding / 2;
