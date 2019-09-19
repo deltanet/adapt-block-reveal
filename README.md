@@ -18,51 +18,59 @@ The attributes listed below are properly formatted as JSON in [*example.json*](h
 
 ### Attributes
 
-The Block reveal attribute group contains values for **_isEnabled**, **_trackCompletion**, **_blockToHide**, **_blockToReveal**, **_classes**, **_buttonTitle**, **_buttonIcon**, **_buttonGraphic**, and **_ariaLabels**.
+The Block reveal attribute group contains values for **_isEnabled**, **_trackCompletion**, **_blockToHide**, and **_blockToReveal**.  
 
 >**_isEnabled** (boolean):  Turns on and off the **Block reveal** extension. Can be set to disable **Block reveal** when not required.  
 
 >**_trackCompletion** (boolean):  Defines whether the button is hidden until the block is complete.  
 
->**_blockToHide** (string):  Defines the id or the block number that displays first.  
+>**_blockToHide** (object): This `_blockToHide` attributes group stores the properties for the open button. It contains values for **_classes**, **_buttonLocation**, **_number**, **title**, **_icon**, **ariaLabel**, and **_graphic**.  
 
->**_blockToReveal** (string):  Defines the id or the block number that is revealed when the button is selected.  
+>>**_classes** (string):  Defines the class name for the button which must be included in the theme.  
 
->**_classes** (string):  Defines the class name for the button which must be included in the theme.  
+>>**_buttonLocation** (string):  Defines where the button will be displayed on the page. Options are `top` and `bottom`.
 
->**_location** (string):  Defines where the button will be displayed on the page. Options are `top` and `bottom`.
+>>**_number** (string):  Defines the id or the block number that displays first.  
 
->**_buttonTitle** (string):  Defines the text for the button on the visible block.  
+>>**title** (string):  Defines the text for the button on the visible block.  
 
->**_buttonBackTitle** (string):  Defines the text for the back button on the hidden block.  
+>>**_icon** (string):  This defines a css class for the icon on the button in the visible block, which must be included in the theme.  
 
->**_buttonIcon** (object): This `_buttonIcon` attributes group stores the properties for the icon on the button. It contains values for **_isEnabled**, **_icon**, and **_iconBack**.  
+>>**ariaLabel** (string):  This text becomes the open button’s `aria label` attribute.  
 
->>**_isEnabled** (boolean):  If set to `true`, an icon will be used as the button.  
+>>**_graphic** (object): This `_graphic` attributes group stores the properties for the graphic used as a button. It contains values for **src**, **srcHover**, and **srcVisited**.  
 
->**_icon** (string):  This defines a css class for the icon on the button in the visible block, which must be included in the theme.  
+>>>**src** (string): File name (including path) of the image for button's normal state.  
 
->**_iconBack** (string):  This defines a css class for the icon on the button in the hidden block, which must be included in the theme.  
+>>>**srcHover** (string): File name (including path) of the image for button's hover state.  
 
->**_buttonGraphic** (object): This `_buttonGraphic` attributes group stores the properties for the graphic used as a button. It contains values for **_isEnabled**, **src**, **srcHover**, **srcVisited**, and **alt**.  
+>>>**srcVisited** (string): File name (including path) of the image for button's visited state.  
 
->>**_isEnabled** (boolean):  If set to `true`, a graphic will be used as the button.  
+>**_blockToReveal** (object): This `_blockToReveal` attributes group stores the properties for the close button. It contains values for **_classes**, **_buttonLocation**, **_number**, **title**, **_icon**, **ariaLabel**, and **_graphic**.  
 
->>**src** (string): File name (including path) of the image for button's normal state.  
+>>**_classes** (string):  Defines the class name for the button which must be included in the theme.  
 
->>**srcHover** (string): File name (including path) of the image for button's hover state.  
+>>**_buttonLocation** (string):  Defines where the button will be displayed on the page. Options are `top` and `bottom`.
 
->>**srcVisited** (string): File name (including path) of the image for button's visited state.  
+>>**_number** (string):  Defines the id or the block number that is revealed when the button is selected.  
 
->**_ariaLabels** (object): This `_ariaLabels` attributes group stores the accessibility properties for the button. It contains values for **openPopup**, and **closePopup**.  
+>>**title** (string):  Defines the text for the back button on the hidden block.  
 
->>**openPopup** (string):  This text becomes the open button’s `aria label` attribute.  
+>>**_icon** (string):  This defines a css class for the icon on the button in the hidden block, which must be included in the theme.  
 
->>**closePopup** (string):  This text becomes the close button’s `aria label` attribute.  
+>>**ariaLabel** (string):  This text becomes the close button’s `aria label` attribute.  
+
+>>**_graphic** (object): This `_graphic` attributes group stores the properties for the graphic used as a button. It contains values for **src**, **srcHover**, and **srcVisited**.  
+
+>>>**src** (string): File name (including path) of the image for button's normal state.  
+
+>>>**srcHover** (string): File name (including path) of the image for button's hover state.  
+
+>>>**srcVisited** (string): File name (including path) of the image for button's visited state.  
 
 ----------------------------
-**Version number:**  2.2.1     
-**Framework versions supported:**  2.0.6     
+**Version number:**  4.0.0     
+**Framework versions supported:**  4+     
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-block-reveal/graphs/contributors)     
 **Accessibility support:** yes  
 **RTL support:** yes  

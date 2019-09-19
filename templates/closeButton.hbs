@@ -1,0 +1,15 @@
+<div class="block-reveal-button {{_blockReveal._blockToReveal._buttonLocation}} {{_blockReveal._blockToReveal._classes}}">
+  {{#if _blockReveal._blockToReveal._graphic.src}}
+    <button class="block-reveal-graphic-button block-reveal-button-states-image" aria-label="{{_blockReveal._blockToReveal.ariaLabel}}">
+      <img src="{{_blockReveal._blockToReveal._graphic.src}}"/>
+      <img src="{{_blockReveal._blockToReveal._graphic.srcHover}}" class="block-reveal-button-image-hover"/>
+      <img src="{{_blockReveal._blockToReveal._graphic.srcVisited}}" class="block-reveal-button-image-visited"/>
+    </button>
+      {{else}}
+    <button class="button reveal-button{{#if _blockReveal._blockToReveal._icon}} icon {{_blockReveal._blockToReveal._icon}}{{/if}}" aria-label="{{_blockReveal._blockToReveal.ariaLabel}}">
+      {{#if _blockReveal._blockToReveal.title}}
+        {{_blockReveal._blockToReveal.title}}
+      {{/if}}
+    </button>
+  {{/if}}
+</div>

@@ -34,13 +34,6 @@
                   "validators": [],
                   "help": "Controls whether the Block Reveal extension is enabled or disabled."
                 },
-                "_classes": {
-                  "type": "string",
-                  "required": false,
-                  "title": "Classes",
-                  "inputType": "Text",
-                  "validators": []
-                },
                 "_trackCompletion": {
                   "type": "boolean",
                   "required": true,
@@ -51,62 +44,42 @@
                   "help": "If enabled, Block Reveal is off until block to hide is complete."
                 },
                 "_blockToHide": {
-                  "type": "number",
-                  "required": true,
-                  "inputType": "Number",
-                  "title": "Visible Block",
-                  "default": 1,
-                  "validators": ["number"],
-                  "help": "Enter the number of the block within the article that you want to display first."
-                },
-                "_blockToReveal": {
-                  "type": "number",
-                  "required": true,
-                  "inputType": "Number",
-                  "title": "Hidden Block to Reveal",
-                  "default": 2,
-                  "validators": ["number"],
-                  "help": "Enter the number of the block within the article that you want to reveal."
-                },
-                "_buttonLocation": {
-                  "type": "string",
-                  "required": false,
-                  "default": "top",
-                  "title": "Button Location",
-                  "inputType": {"type": "Select", "options": ["top", "bottom"]},
-                  "validators": []
-                },
-                "_buttonTitle": {
-                  "type": "string",
-                  "required": false,
-                  "default": "",
-                  "title": "Button Title",
-                  "inputType": "Text",
-                  "validators": [],
-                  "translatable": true
-                },
-                "_buttonBackTitle": {
-                  "type": "string",
-                  "required": false,
-                  "default": "",
-                  "title": "Back Button Title",
-                  "inputType": "Text",
-                  "validators": [],
-                  "translatable": true
-                },
-                "_buttonIcon": {
                   "type": "object",
-                  "title": "Button Icon",
+                  "legend": "Visible Block",
                   "required": false,
                   "properties": {
-                    "_isEnabled": {
-                      "type": "boolean",
+                    "_classes": {
+                      "type": "string",
+                      "required": false,
+                      "title": "Classes",
+                      "inputType": "Text",
+                      "validators": []
+                    },
+                    "_buttonLocation": {
+                      "type": "string",
+                      "required": false,
+                      "default": "top",
+                      "title": "Button Location",
+                      "inputType": {"type": "Select", "options": ["top", "bottom"]},
+                      "validators": []
+                    },
+                    "_number": {
+                      "type": "number",
                       "required": true,
-                      "default": true,
-                      "title": "Is Enabled",
-                      "inputType": "Checkbox",
+                      "inputType": "Number",
+                      "title": "Block Number",
+                      "default": 1,
+                      "validators": ["number"],
+                      "help": "Enter the number of the block within the article that you want to display first."
+                    },
+                    "title": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "title": "Button Title",
+                      "inputType": "Text",
                       "validators": [],
-                      "help": "Controls whether Button Icon is on or off."
+                      "translatable": true
                     },
                     "_icon": {
                       "type": "string",
@@ -116,78 +89,133 @@
                       "inputType": "Text",
                       "validators": []
                     },
-                    "_iconBack": {
+                    "ariaLabel": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "title": "Aria Label",
+                      "inputType": "Text",
+                      "validators": [],
+                      "translatable": true
+                    },
+                    "_graphic": {
+                      "type": "object",
+                      "title": "Button Graphic",
+                      "required": false,
+                      "properties": {
+                        "src": {
+                          "type": "string",
+                          "required": false,
+                          "default": "",
+                          "inputType": "Asset:image",
+                          "validators": [],
+                          "help": "Button graphic default state."
+                        },
+                        "srcHover": {
+                          "type": "string",
+                          "required": false,
+                          "default": "",
+                          "inputType": "Asset:image",
+                          "validators": [],
+                          "help": "Button graphic hover state."
+                        },
+                        "srcVisited": {
+                          "type": "string",
+                          "required": false,
+                          "default": "",
+                          "inputType": "Asset:image",
+                          "validators": [],
+                          "help": "Button graphic visited state."
+                        }
+                      }
+                    }
+                  }
+                },
+                "_blockToReveal": {
+                  "type": "object",
+                  "legend": "Hidden Block to Reveal",
+                  "required": false,
+                  "properties": {
+                    "_classes": {
+                      "type": "string",
+                      "required": false,
+                      "title": "Classes",
+                      "inputType": "Text",
+                      "validators": []
+                    },
+                    "_buttonLocation": {
+                      "type": "string",
+                      "required": false,
+                      "default": "top",
+                      "title": "Button Location",
+                      "inputType": {"type": "Select", "options": ["top", "bottom"]},
+                      "validators": []
+                    },
+                    "_number": {
+                      "type": "number",
+                      "required": true,
+                      "inputType": "Number",
+                      "title": "Block Number",
+                      "default": 1,
+                      "validators": ["number"],
+                      "help": "Enter the number of the block within the article that you want to reveal."
+                    },
+                    "title": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "title": "Button Title",
+                      "inputType": "Text",
+                      "validators": [],
+                      "translatable": true
+                    },
+                    "_icon": {
                       "type": "string",
                       "required": false,
                       "title": "Icon",
                       "default": "icon-cross",
                       "inputType": "Text",
                       "validators": []
-                    }
-                  }
-                },
-                "_buttonGraphic": {
-                  "type": "object",
-                  "title": "Button Graphic",
-                  "required": false,
-                  "properties": {
-                    "_isEnabled": {
-                      "type": "boolean",
-                      "required": false,
-                      "default": false,
-                      "title": "Is Enabled",
-                      "inputType": "Checkbox",
-                      "validators": [],
-                      "help": "Controls whether Button Graphic is on or off."
                     },
-                    "src": {
+                    "ariaLabel": {
                       "type": "string",
                       "required": false,
                       "default": "",
-                      "inputType": "Asset:image",
-                      "validators": [],
-                      "help": "Button graphic default state."
-                    },
-                    "srcHover": {
-                      "type": "string",
-                      "required": false,
-                      "default": "",
-                      "inputType": "Asset:image",
-                      "validators": [],
-                      "help": "Button graphic hover state."
-                    },
-                    "srcVisited": {
-                      "type": "string",
-                      "required": false,
-                      "default": "",
-                      "inputType": "Asset:image",
-                      "validators": [],
-                      "help": "Button graphic visited state."
-                    }
-                  }
-                },
-                "_ariaLabels": {
-                  "type": "object",
-                  "title": "Accessibility",
-                  "required": false,
-                  "properties": {
-                    "openPopup": {
-                      "type": "string",
-                      "required": false,
-                      "default": "",
-                      "title": "Open Button Aria Label",
+                      "title": "Aria Label",
                       "inputType": "Text",
                       "validators": [],
                       "translatable": true
                     },
-                    "closePopup": {
-                      "type": "string",
+                    "_graphic": {
+                      "type": "object",
+                      "title": "Button Graphic",
                       "required": false,
-                      "default": "",
-                      "title": "Close Button Aria Label",
-                      "inputType": "Text",
-                      "validators": [],
-                      "translatable": true
+                      "properties": {
+                        "src": {
+                          "type": "string",
+                          "required": false,
+                          "default": "",
+                          "inputType": "Asset:image",
+                          "validators": [],
+                          "help": "Button graphic default state."
+                        },
+                        "srcHover": {
+                          "type": "string",
+                          "required": false,
+                          "default": "",
+                          "inputType": "Asset:image",
+                          "validators": [],
+                          "help": "Button graphic hover state."
+                        },
+                        "srcVisited": {
+                          "type": "string",
+                          "required": false,
+                          "default": "",
+                          "inputType": "Asset:image",
+                          "validators": [],
+                          "help": "Button graphic visited state."
+                        }
+                      }
                     }
                   }
                 }
