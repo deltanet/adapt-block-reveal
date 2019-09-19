@@ -156,7 +156,7 @@
                       "required": true,
                       "inputType": "Number",
                       "title": "Block Number",
-                      "default": 1,
+                      "default": 2,
                       "validators": ["number"],
                       "help": "Enter the number of the block within the article that you want to reveal."
                     },
