@@ -69,7 +69,7 @@ The Block reveal attribute group contains values for **_isEnabled**, **_trackCom
 >>>**srcVisited** (string): File name (including path) of the image for button's visited state.  
 
 ----------------------------
-**Version number:**  4.0.1     
+**Version number:**  4.0.2     
 **Framework versions supported:**  4+     
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-block-reveal/graphs/contributors)     
 **Accessibility support:** yes  
