@@ -1,3 +1,5 @@
+{{#any _blockReveal._blockToReveal._graphic.src _blockReveal._blockToReveal._icon _blockReveal._blockToReveal.title}}
+
 <div class="block-reveal-button {{_blockReveal._blockToReveal._buttonLocation}} {{_blockReveal._blockToReveal._classes}}">
   {{#if _blockReveal._blockToReveal._graphic.src}}
     <button class="block-reveal-graphic-button block-reveal-button-states-image" aria-label="{{_blockReveal._blockToReveal.ariaLabel}}">
@@ -13,3 +15,5 @@
     </button>
   {{/if}}
 </div>
+
+{{/any}}
