@@ -56,7 +56,7 @@ define([
       var $titleInnerElement = $('.'+this.blockToReveal).find('.block__title-inner');
 
       if ($titleElement.length) {
-        var titlePadding = $titleElement.outerHeight() - $titleElement.height();
+        var titlePadding = $titleElement.height() - $titleElement.height();
         $titleElement.css('min-height', this.$('button').outerHeight() - titlePadding);
         $titleInnerElement.css('vertical-align', 'middle');
       }
@@ -81,7 +81,7 @@ define([
         opacity: 1
       });
 
-      Adapt.scrollTo('.' + this.blockToHide, { duration:400 });
+      Adapt.navigateToElement('.' + this.blockToHide, { duration:400 });
       $(window).resize();
     }
 
