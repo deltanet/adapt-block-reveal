@@ -8,6 +8,11 @@
 		position: absolute;
 		top: @block-padding-ver;
 		right: @block-padding-hoz;
+
+		.dir-rtl & {
+			right: inherit;
+			left: @block-padding-hoz;
+		}
 	}
 
 	&.bottom {
@@ -101,5 +106,4 @@
 			}
 		}
 	}
-
 }
