@@ -19,6 +19,11 @@
 		top: @block-padding-top;
 		right: @component-padding;
 
+		.dir-rtl & {
+			right: inherit;
+			left: @component-padding;
+		}
+
 		@media all and (max-width: (@device-width-large + 20px)) {
 			top: @block-padding-top / 2;
 			right: @title-text-margin + 20px;
