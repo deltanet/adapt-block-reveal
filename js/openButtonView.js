@@ -13,7 +13,6 @@ define([
     initialize: function () {
       this.listenTo(Adapt, 'remove', this.remove);
       this.listenTo(Adapt, 'pageView:ready', this.render);
-      this.listenTo(this.model, 'change:_isComplete', this.updateIcon);
     },
 
     render: function () {
@@ -57,8 +56,11 @@ define([
       $blockToHideInner.css('opacity', 1);
       $blockToRevealInner.css('opacity', 0);
 
-      if (this.model.get('_blockReveal')._trackCompletion){
-        if (!this.model.get('_isComplete')){
+      if (this.model.get('_blockReveal')._trackCompletion) {
+        this.blockModel = this.children.models[0];
+        this.listenTo(this.blockModel, 'change:_isComplete', this.updateIcon);
+
+        if (!this.blockModel.get('_isComplete')) {
           this.$('.blockreveal__btn').hide();
         }
       }
@@ -102,7 +104,7 @@ define([
     },
 
     updateIcon: function () {
-      if (this.model.get('_isComplete')){
+      if (this.blockModel.get('_isComplete')) {
         this.$('.blockreveal__btn').show();
       }
     }
