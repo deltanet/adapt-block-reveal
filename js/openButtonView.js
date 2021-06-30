@@ -13,7 +13,6 @@ define([
 
         initialize: function () {
             this.listenTo(Adapt, 'remove', this.remove);
-            this.listenTo(this.model, 'change:_isComplete', this.updateIcon);
             this.render();
         },
 
@@ -56,10 +55,13 @@ define([
             $blockToHideInner.css('opacity', 1);
             $blockToRevealInner.css('opacity', 0);
 
-            if (this.model.get('_blockReveal')._trackCompletion){
-                if (!this.model.get('_isComplete')){
-                    this.$('.block-reveal-button').hide();
-                }
+            if (this.model.get('_blockReveal')._trackCompletion) {
+              this.blockModel = this.children.models[0];
+              this.listenTo(this.blockModel, 'change:_isComplete', this.updateIcon);
+
+              if (!this.blockModel.get('_isComplete')){
+                this.$('.block-reveal-button').hide();
+              }
             }
 
             // Resize title to match button
@@ -101,9 +103,9 @@ define([
         },
 
         updateIcon: function () {
-            if(this.model.get('_isComplete')){
-                this.$('.block-reveal-button').show();
-            }
+          if (this.blockModel.get('_isComplete')) {
+            this.$('.block-reveal-button').show();
+          }
         }
 
     });
