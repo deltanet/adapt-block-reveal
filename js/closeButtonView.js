@@ -70,8 +70,10 @@ define([
       var $blockToHideInner = $('.' + this.blockToReveal);
       var $blockToRevealInner = $('.' + this.blockToHide);
 
-      $blockToHideInner.addClass('is-blockreveal-hidden');
-      $blockToRevealInner.removeClass('is-blockreveal-hidden');
+      $blockToHideInner.addClass('u-display-none');
+      $blockToRevealInner.removeClass('u-display-none');
+
+      Adapt.trigger('device:changed');
 
       $blockToHideInner.velocity({
         opacity: 0
@@ -82,7 +84,6 @@ define([
       });
 
       Adapt.navigateToElement('.' + this.blockToHide, { duration:400 });
-      $(window).resize();
     }
 
   });

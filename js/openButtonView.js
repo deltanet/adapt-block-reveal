@@ -52,7 +52,7 @@ define([
       var $blockToHideInner = $('.' + this.blockToHide);
       var $blockToRevealInner = $('.' + this.blockToReveal);
 
-      $blockToRevealInner.addClass('is-blockreveal-hidden');
+      $blockToRevealInner.addClass('u-display-none');
       $blockToHideInner.css('opacity', 1);
       $blockToRevealInner.css('opacity', 0);
 
@@ -88,8 +88,10 @@ define([
 
       this.$('.blockreveal-graphic-btn').addClass('visited');
 
-      $blockToHideInner.addClass('is-blockreveal-hidden');
-      $blockToRevealInner.removeClass('is-blockreveal-hidden');
+      $blockToHideInner.addClass('u-display-none');
+      $blockToRevealInner.removeClass('u-display-none');
+
+      Adapt.trigger('device:changed');
 
       $blockToHideInner.velocity({
         opacity: 0
@@ -100,7 +102,6 @@ define([
       });
 
       Adapt.navigateToElement('.' + this.blockToReveal, { duration:400 });
-      $(window).resize();
     },
 
     updateIcon: function () {
