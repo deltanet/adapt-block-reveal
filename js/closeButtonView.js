@@ -1,91 +1,93 @@
 define([
-    'core/js/adapt'
-], function(Adapt) {
+  'core/js/adapt'
+], function (Adapt) {
 
-    var CloseButtonView = Backbone.View.extend({
+  var CloseButtonView = Backbone.View.extend({
 
-        className: "block-reveal-close",
+    className: 'blockreveal',
 
-        initialize: function () {
-            this.listenTo(Adapt, 'remove', this.remove);
-            this.render();
-        },
+    events: {
+      'click .js-blockreveal-close-btn': 'closeContent'
+    },
 
-        events: {
-            "click .block-reveal-graphic-button": "closeContent",
-            "click .reveal-button": "closeContent"
-        },
+    initialize: function () {
+      this.listenTo(Adapt, 'remove', this.remove);
+      this.listenTo(Adapt, 'pageView:ready', this.render);
+    },
 
-        render: function () {
-            var data = this.model.toJSON();
-            var template = Handlebars.templates["closeButton"];
+    render: function () {
+      var data = this.model.toJSON();
+      var template = Handlebars.templates['closeButton'];
 
-            // Collect data and set up block id's
-            this.hideBlockNum = this.model.get('_blockReveal')._blockToHide._number;
-            this.revealBlockNum = this.model.get('_blockReveal')._blockToReveal._number;
+      // Collect data and set up block id's
+      this.hideBlockNum = this.model.get('_blockReveal')._blockToHide._number;
+      this.revealBlockNum = this.model.get('_blockReveal')._blockToReveal._number;
 
-            // Get children and create array
-            this.children = this.model.getChildren(true);
-            this.childrenId = new Array();
-            for (var i = 0, l = this.children.length; i < l; i++) {
-              this.childrenId[i] = this.children.models[i].get('_id');
-            }
+      // Get children and create array
+      this.children = this.model.getChildren(true);
+      this.childrenId = [];
+      for (var i = 0, l = this.children.length; i < l; i++) {
+        this.childrenId[i] = this.children.models[i].get('_id');
+      }
 
-            // Backward compatible
-            // If length of number is greater than 5 it will be treated as a string ID
-            // Set id for block to hide
-            if(this.hideBlockNum.length > 5) {
-              this.blockToHide = this.hideBlockNum;
-            } else {
-              this.blockToHide = this.childrenId[this.hideBlockNum-1];
-            }
-            // Set id for block to reveal
-            if(this.revealBlockNum.length > 5) {
-              this.blockToReveal = this.revealBlockNum;
-            } else {
-              this.blockToReveal = this.childrenId[this.revealBlockNum-1];
-            }
+      // Backward compatible
+      // If length of number is greater than 5 it will be treated as a string ID
+      // Set id for block to hide
+      if (this.hideBlockNum.length > 5) {
+        this.blockToHide = this.hideBlockNum;
+      } else {
+        this.blockToHide = this.childrenId[this.hideBlockNum-1];
+      }
+      // Set id for block to reveal
+      if (this.revealBlockNum.length > 5) {
+        this.blockToReveal = this.revealBlockNum;
+      } else {
+        this.blockToReveal = this.childrenId[this.revealBlockNum-1];
+      }
 
-            $(this.el).html(template(data)).appendTo('.' + this.blockToReveal + " > .block-inner");
+      $(this.el).html(template(data)).appendTo('.' + this.blockToReveal + ' > .block__inner');
 
-            // Resize title to match button
-            if (this.model.get('_blockReveal')._blockToReveal._buttonLocation == "bottom") return;
+      $(this.el).addClass(this.model.get('_blockReveal')._blockToReveal._buttonLocation + ' ' +this.model.get('_blockReveal')._blockToReveal._classes);
 
-            var $titleElement = $('.'+this.blockToReveal).find('.block-title');
-            var $titleInnerElement = $('.'+this.blockToReveal).find('.block-title-inner');
+      // Resize title to match button
+      if (this.model.get('_blockReveal')._blockToReveal._buttonLocation == 'bottom') return;
 
-            if ($titleElement.length) {
-              var titlePadding = $titleElement.outerHeight() - $titleElement.height();
-              $titleElement.css('min-height', this.$('button').outerHeight() - titlePadding);
-              $titleInnerElement.css('vertical-align', 'middle');
-            }
-        },
+      var $titleElement = $('.'+this.blockToReveal).find('.block__title');
+      var $titleInnerElement = $('.'+this.blockToReveal).find('.block__title-inner');
 
-        closeContent: function(event) {
-            if (event) event.preventDefault();
+      if ($titleElement.length) {
+        var titlePadding = $titleElement.height() - $titleElement.height();
+        $titleElement.css('min-height', this.$('button').outerHeight() - titlePadding);
+        $titleInnerElement.css('vertical-align', 'middle');
+      }
+    },
 
-            Adapt.trigger('audio:pauseAudio', 0);
+    closeContent: function (event) {
+      if (event) event.preventDefault();
 
-            var $blockToHideInner = $("." + this.blockToReveal);
-            var $blockToRevealInner = $("." + this.blockToHide);
+      Adapt.trigger('audio:pauseAudio', 0);
 
-            $blockToHideInner.addClass('block-reveal-hidden');
-            $blockToRevealInner.removeClass('block-reveal-hidden');
+      var $blockToHideInner = $('.' + this.blockToReveal);
+      var $blockToRevealInner = $('.' + this.blockToHide);
 
-            $blockToHideInner.velocity({
-                opacity: 0
-            });
+      $blockToHideInner.addClass('u-display-none');
+      $blockToRevealInner.removeClass('u-display-none');
 
-            $blockToRevealInner.velocity({
-                opacity: 1
-            });
+      Adapt.trigger('device:changed');
 
-            Adapt.scrollTo("." + this.blockToHide, { duration:400 });
-            $(window).resize();
-        }
+      $blockToHideInner.velocity({
+        opacity: 0
+      });
 
-    });
+      $blockToRevealInner.velocity({
+        opacity: 1
+      });
 
-    return CloseButtonView;
+      Adapt.navigateToElement('.' + this.blockToHide, { duration:400 });
+    }
+
+  });
+
+  return CloseButtonView;
 
 });
