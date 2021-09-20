@@ -10,7 +10,9 @@
       {{else}}
     <button class="reveal-button{{#if _blockReveal._blockToReveal._icon}} icon {{_blockReveal._blockToReveal._icon}}{{/if}}" aria-label="{{_blockReveal._blockToReveal.ariaLabel}}">
       {{#if _blockReveal._blockToReveal.title}}
-        {{_blockReveal._blockToReveal.title}}
+        <div class="reveal-button-title{{#if _blockReveal._blockToReveal._icon}} add-margin{{/if}}">
+          {{_blockReveal._blockToReveal.title}}
+        </div>
       {{/if}}
     </button>
   {{/if}}
