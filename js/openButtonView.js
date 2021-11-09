@@ -12,7 +12,7 @@ define([
 
     initialize: function () {
       this.listenTo(Adapt, 'remove', this.remove);
-      this.listenTo(Adapt, 'pageView:ready', this.render);
+      this.listenTo(Adapt, 'componentView:postRender', this.render);
     },
 
     render: function () {
