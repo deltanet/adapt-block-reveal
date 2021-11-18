@@ -12,7 +12,7 @@ define([
 
     initialize: function () {
       this.listenTo(Adapt, 'remove', this.remove);
-      this.listenTo(Adapt, 'componentView:postRender', this.render);
+      this.listenToOnce(Adapt, 'componentView:postRender', this.render);
     },
 
     render: function () {
@@ -24,10 +24,10 @@ define([
       this.revealBlockNum = this.model.get('_blockReveal')._blockToReveal._number;
 
       // Get children and create array
-      this.children = this.model.getChildren(true);
+      this.children = this.model.getChildren().models.filter(model => model.isTypeGroup('block'));;
       this.childrenId = [];
       for (var i = 0, l = this.children.length; i < l; i++) {
-        this.childrenId[i] = this.children.models[i].get('_id');
+        this.childrenId[i] = this.children[i].get('_id');
       }
 
       // Backward compatible
