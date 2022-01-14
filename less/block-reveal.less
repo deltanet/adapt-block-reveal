@@ -28,6 +28,7 @@
 	}
 
 	&__btn {
+		display: flex;
     background-color: @btn-color;
     color: @btn-color-inverted;
 
@@ -39,6 +40,16 @@
 
 		min-height: @icon-size + (@item-padding*2);
   }
+
+	&__btn-title {
+		&.is-icon {
+			padding-left: @item-padding / 2;
+			.dir-rtl & {
+				padding-left: inherit;
+				padding-right: @item-padding / 2;
+			}
+		}
+	}
 
 	&__graphic-btn {
 		img {

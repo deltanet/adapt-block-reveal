@@ -10,7 +10,7 @@
 <button class="{{#if _blockReveal._blockToHide._icon}}btn-icon {{/if}}{{#if _blockReveal._blockToHide.title}}btn-text {{/if}}blockreveal__btn js-blockreveal-reveal-btn" aria-label="{{_blockReveal._blockToHide.ariaLabel}}">
   <div class="icon {{_blockReveal._blockToHide._icon}}"></div>
   {{#if _blockReveal._blockToHide.title}}
-    {{_blockReveal._blockToHide.title}}
+    <div class="blockreveal__btn-title{{#if _blockReveal._blockToHide._icon}} is-icon{{/if}}">{{_blockReveal._blockToHide.title}}</div>
   {{/if}}
 </button>
 {{/if}}
